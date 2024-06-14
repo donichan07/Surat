@@ -1,0 +1,457 @@
+.navbar-brand img {
+  height: 50px;
+}
+.navbar-brand span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+.nav-link {
+  font-size: 1rem;
+  margin-right: 1rem;
+  color: #555;
+}
+.nav-link:hover {
+  color: #007bff;
+}
+body {
+  padding-top: 70px; /* Adjust based on navbar height to avoid content overlap */
+}
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
+  .navbar-nav {
+    flex-direction: column;
+    text-align: center;
+  }
+  .navbar-nav .nav-item {
+    margin-bottom: 10px;
+  }
+}
+
+/* home */
+.tengah {
+  text-align: center;
+  width: 100%;
+}
+
+a.tbl-biru {
+  background: #3f72af;
+  border-radius: 20px;
+  margin-top: 20px;
+  padding: 15px 20px 15px 20px;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+a.tbl-biru:hover {
+  background: #fc5185;
+  text-decoration: none;
+}
+
+a.tbl-pink {
+  background: #fc5185;
+  border-radius: 20px;
+  margin-top: 20px;
+  padding: 15px 20px 15px 20px;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+a.tbl-pink:hover {
+  background: #3f72af;
+  text-decoration: none;
+}
+section {
+  margin: auto;
+  display: flex;
+  margin-bottom: 50px;
+}
+
+p {
+  margin: 10px 0px 10px 0px;
+  padding: 10px 0px 10px 0px;
+}
+
+.kolom {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.kolom .deskripsi {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "comic sans ms";
+  color: #364f6b;
+}
+
+h2 {
+  font-family: "comic sans ms";
+  font-weight: 800;
+  font-size: 45px;
+  margin-bottom: 20px;
+  color: #364f6b;
+  width: 100%;
+  line-height: 50px;
+}
+
+.tengah {
+  text-align: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 991.98px) {
+  section {
+    display: block;
+  }
+
+  section img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* tutor */
+.tutor-list {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.kartu-tutor {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.kartu-tutor img {
+  width: 80%;
+  border-radius: 50%;
+}
+
+.kartu-tutor p {
+  font-family: "comic sans ms";
+  font-weight: 800;
+  font-size: 25px;
+  text-align: center;
+  color: #364f6b;
+}
+
+/* partner */
+.partner-list {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.kartu-partner {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.kartu-partner img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+/* Global */
+* {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+/* contak */
+/* Footer */
+#contact {
+  background-color: #f9f9f9;
+  padding: 50px 0;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.footer-section {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.footer-section:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.footer-section h3 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 18px;
+}
+
+.footer-section p {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Social Media Section */
+.social-media-section a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-media-section a:hover {
+  color: #0056b3;
+}
+/* Copyright */
+#copyright {
+  text-align: center;
+  width: 100%;
+  padding: 50px 0;
+  margin-top: 50px;
+  background-color: #333;
+  color: #fff;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.wrapper b {
+  font-weight: bold;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.wrapper {
+  width: 1100px;
+  margin: auto;
+  position: relative;
+}
+
+@media screen and (max-width: 991.98px) {
+  .wrapper {
+    width: 90%;
+  }
+}
+
+/* animasi */
+.fade-in {
+  animation: fadeInAnimation ease 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.1);
+}
+
+.card-img-top {
+  transition: transform 0.3s;
+}
+
+.card-body {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  padding: 10px;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.card:hover .card-body {
+  opacity: 1;
+}
+
+.card-title {
+  color: #fff;
+  font-size: 1.25rem;
+  margin-bottom: 5px;
+}
+
+.card-subtitle {
+  color: #f5f5f5;
+  font-size: 0.875rem;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: #f5f5f5;
+  font-size: 0.875rem;
+  margin-bottom: 2px;
+}
+
+.btn-primary {
+  margin-top: 10px;
+}
+
+/* nilai */
+/* Gaya untuk kontainer kartu */
+#nilai_siswa .card-container {
+  display: flex; /* Menggunakan flexbox untuk penataan kartu */
+  flex-wrap: wrap; /* Mengatur agar kartu-kartu dapat melingkar jika tidak cukup ruang */
+  justify-content: space-around; /* Mengatur agar kartu-kartu berada di tengah secara horizontal dengan jarak yang merata */
+}
+
+/* Gaya untuk kartu */
+#nilai_siswa .card {
+  position: relative; /* Mengatur posisi relatif untuk memungkinkan penempatan elemen tambahan */
+  width: calc(30% - 20px); /* Lebar kartu, dengan jarak antar kartu 20px */
+  margin-bottom: 20px;
+  border: none; /* Hilangkan border agar tampilan lebih bersih */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  background-color: #fff;
+}
+
+/* Gaya hover untuk kartu */
+#nilai_siswa .card:hover {
+  transform: translateY(-5px); /* Mendorong kartu ke atas saat digulirkan */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Gaya untuk konten kartu */
+#nilai_siswa .card-content {
+  padding: 20px;
+}
+
+/* Gaya untuk judul */
+#nilai_siswa .card h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333; /* Warna judul */
+  text-align: center; /* Pusatkan teks judul */
+}
+
+/* Gaya untuk teks */
+#nilai_siswa .card p {
+  margin: 5px 0;
+  color: #666; /* Warna teks */
+}
+
+/* Gaya untuk header */
+#nilai_siswa h2 {
+  margin-bottom: 30px; /* Jarak bawah header */
+  font-size: 24px;
+  color: #333; /* Warna teks header */
+  text-align: center; /* Pusatkan teks header */
+  text-transform: uppercase; /* Konversi teks header menjadi huruf besar */
+  letter-spacing: 2px; /* Spasi antar huruf */
+  font-weight: bold; /* Teks lebih tebal */
+}
+
+/* Ornamen untuk kartu */
+#nilai_siswa .card::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(circle, #ff00ff, #cf00ff, #6600ff);
+  opacity: 0.4;
+  transform: translate(-50%, -50%);
+  z-index: -1; /* Mengatur ornamen berada di bawah konten kartu */
+}
+
+/* guru */
+#guru {
+  padding: 50px 0;
+  background-color: #f8f9fa; /* Warna latar belakang */
+}
+
+.kolom {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.deskripsi {
+  font-size: 24px;
+  color: #333; /* Warna teks */
+}
+
+.tutor-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.kartu-tutor {
+  width: 250px;
+  margin: 20px;
+  border-radius: 15px; /* Mengubah sudut border menjadi bulat */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan kartu */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efek animasi */
+}
+
+.kartu-tutor:hover {
+  transform: translateY(-5px) scale(1.02); /* Efek hover */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Bayangan kartu saat hover */
+}
+
+.kartu-tutor p {
+  padding: 24px;
+  background-color: #fff; /* Warna latar belakang kartu */
+  margin: 0;
+  font-size: 20px;
+  color: #555; /* Warna teks */
+}
+
+.kartu-tutor h4 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #333; /* Warna teks judul */
+}
+
+/* Animasi saat mouse masuk dan keluar */
+.kartu-tutor:hover img {
+  transform: scale(1.1);
+}
+
+/* Efek transisi gambar saat hover */
+.kartu-tutor img {
+  transition: transform 0.3s ease; /* Efek animasi */
+}
+
+/* bagian eskul */
+#Eskul img {
+  width: 100%; /* Mengatur lebar gambar menjadi 100% dari lebar parent */
+  height: auto; /* Mengatur tinggi gambar agar mengikuti proporsi aslinya */
+}
+#Eskul .card-img-top {
+  width: 100%; /* Mengatur lebar gambar menjadi 100% dari lebar parent */
+  height: 200px; /* Menentukan tinggi tetap gambar, sesuaikan dengan kebutuhan Anda */
+  object-fit: cover; /* Memastikan gambar terisi dan terpotong sesuai proporsi */
+}
