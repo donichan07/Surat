@@ -142,7 +142,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     // ----------------------- inbox -----------------------------//
     Route::resource('inbox', InboxController::class);
-    Route::get('/inbox', [InboxController::class, 'index'])->name('/inbox/index');
+    Route::get('/inbox', [InboxController::class, 'index'])->name('inbox.index');
     Route::get('/inbox/create', [InboxController::class, 'create'])->name('inbox.create');
     Route::get('/inbox/{id}/edit', [InboxController::class, 'edit'])->name('inbox.edit');
     Route::post('/inbox', [InboxController::class, 'store'])->name('inbox.store');

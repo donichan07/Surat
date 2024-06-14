@@ -108,48 +108,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="pt-3 pb-3">
-                                    @if (\Carbon\Carbon::setLocale('id') && ($today = \Carbon\Carbon::now()->isoFormat('dddd')))
-                                        @if ($lessons = \App\Models\Lessons::where('days', $today)->with('subject')->get())
-                                            @foreach ($lessons as $lesson)
-                                                <div class="table-responsive lesson">
-                                                    <table class="table table-center">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="date">
-                                                                        <b>Kelas {{ $lesson->class }}
-                                                                            {{ $lesson->class_type }}</b>
-                                                                        <p>{{ $lesson->subject->subject_name }}</p>
-                                                                        <ul class="teacher-date-list">
-                                                                            <li><i class="fas fa-calendar-alt me-2"></i>
-                                                                                {{ $lesson->days }}
-                                                                                {{ \Carbon\Carbon::now()->format('j M, Y') }}
-                                                                            </li>
-                                                                            <li>|</li>
-                                                                            <li><i
-                                                                                    class="fas fa-clock me-2"></i>{{ \Carbon\Carbon::parse($lesson->time_start)->format('H:i') }}
-                                                                                -
-                                                                                {{ \Carbon\Carbon::parse($lesson->time_end)->format('H:i') }}
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="lesson-confirm">
-                                                                        <a href="#">Dikonfirmasi</a>
-                                                                    </div>
-                                                                    <button type="submit" class="btn btn-info">Jadwal
-                                                                        Ulang</button>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            @endforeach
-                                        @endif
-                                    @endif
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -221,111 +180,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-lg-12 col-xl-12 d-flex ">
-                            <div class="card flex-fill comman-shadow ">
-                                <div class="card-header d-flex align-items-center">
-                                    <h5 class="card-title">Nilai Siswa</h5>
-                                    <div class="col-auto text-end float-end ms-auto download-grp">
-                                        @if (auth()->user()->role_name === 'Super Admin' || Session::get('role_name') === 'Teachers')
-                                            <a href="{{ route('scores.create') }}" class="btn btn-primary"><i
-                                                    class="fas fa-plus"></i></a>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="table-responsive px-3">
-                                    <table id="studentTable"
-                                        class="table border-0 star-student table-hover table-center mb-0 table-striped">
-                                        <thead class="student-thread">
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Guru</th>
-                                                <th>Murid</th>
-                                                <th>Mata Pelajaran</th>
-                                                <th>Nilai</th>
-                                                @if (auth()->user()->role_name === 'Super Admin' || Session::get('role_name') === 'Teachers')
-                                                    <th class="text-center">Aksi</th>
-                                                @endif
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach (\App\Models\Score::all() as $key => $score)
-                                                <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $score->teacher->full_name }}</td>
-                                                    <td>{{ $score->student->first_name }} {{ $score->student->last_name }}
-                                                    </td>
-                                                    <td>{{ $score->subject->subject_name }}</td>
-                                                    @if ($score->score >= 80 && $score->score <= 100)
-                                                        <td><span
-                                                                class="bg-success opacity-50 px-2 py-1 rounded-pill text-white fw-bold">{{ $score->score }}</span>
-                                                        </td>
-                                                    @elseif($score->score >= 70 && $score->score <= 79)
-                                                        <td><span
-                                                                class="bg-warning opacity-50 px-2 py-1 rounded-pill text-white fw-bold">{{ $score->score }}</span>
-                                                        </td>
-                                                    @elseif($score->score >= 1 && $score->score <= 69)
-                                                        <td><span
-                                                                class="bg-danger opacity-50 px-2 py-1 rounded-pill text-white fw-bold">{{ $score->score }}</span>
-                                                        </td>
-                                                    @endif
-                                                    @if (auth()->user()->role_name === 'Super Admin' || Session::get('role_name') === 'Teachers')
-                                                        <td class="text-center align-middle">
-                                                            <div
-                                                                class="actions d-flex justify-content-center align-items-center">
-                                                                <a href="{{ route('scores.show', $score->id) }}"
-                                                                    class="btn btn-sm bg-danger-light me-2">
-                                                                    <i class="far fa-eye me-2"></i>
-                                                                </a>
-                                                                <a href="{{ route('scores.edit', $score->id) }}"
-                                                                    class="btn btn-sm bg-danger-light me-2">
-                                                                    <i class="far fa-edit me-2"></i>
-                                                                </a>
-                                                                <button type="button"
-                                                                    class="btn btn-sm bg-danger-light student_delete"
-                                                                    data-bs-toggle="modal" data-bs-target="#deleteModal"
-                                                                    data-id="{{ $score->id }}">
-                                                                    <i class="far fa-trash-alt py-1"></i>
-                                                                </button>
-                                                            </div>
-                                                        </td>
-                                                    @endif
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                                {{-- model hapus siswa --}}
-                                <div class="modal custom-modal fade" id="deleteModal" role="dialog">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-body">
-                                                <div class="form-header">
-                                                    <h3>Hapus Nilai</h3>
-                                                    <p>Apakah Anda yakin ingin menghapus?</p>
-                                                </div>
-                                                <div class="modal-btn delete-action">
-                                                    <form id="deleteForm" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <input type="hidden" name="id" class="e_id"
-                                                            value="">
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                <button type="submit"
-                                                                    class="btn btn-primary continue-btn submit-btn"
-                                                                    style="border-radius: 5px !important;">Hapus</button>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <a href="#" data-bs-dismiss="modal"
-                                                                    class="btn btn-primary paid-cancel-btn">Batal</a>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        
                             </div>
                         </div>
                     </div>
@@ -371,26 +226,7 @@
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            @foreach (\App\Models\Event::all() as $event)
-                                                <tr>
-                                                    <td>{{ $event->id }}</td>
-                                                    <td>{{ $event->title }}</td>
-                                                    <td>{{ \Carbon\Carbon::parse($event->start)->format('d M Y H:i') }}
-                                                    </td>
-                                                    <td>{{ \Carbon\Carbon::parse($event->end)->format('d M Y H:i') }}</td>
-                                                    <td>{{ \Carbon\Carbon::parse($event->start)->diffInHours(\Carbon\Carbon::parse($event->end)) }}
-                                                        jam</td>
-                                                    <td>
-                                                        <div class="actions">
-                                                            <a href="{{ url('fullcalender') }}" class="btn btn-sm">
-                                                                <i class="fas fa-sign-in-alt me-2"></i>
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
+                                        
                                     </table>
                                 </div>
                             </div>

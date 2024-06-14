@@ -44,19 +44,18 @@
                 </li>
                 @endif
                 @if (auth()->user()->role_name === 'Admin' || auth()->user()->role_name === 'Super Admin' || auth()->user()->role_name === 'Teacher')
-                <li class="submenu {{ set_active(['inbox.index', 'inbox.create']) }} {{ (request()->is('inbox/edit/*')) ? 'active' : '' }}">
-    <a href="#"><i class="fas fa-envelope"></i>
-        <span>Surat Masuk</span>
-        <span class="menu-arrow"></span>
-    </a>
-    <ul>
-        <li><a href="{{ route('inbox.index') }}" class="{{ set_active(['inbox.index']) }}">Daftar Surat Masuk</a></li>
-        @if (auth()->user()->role_name === 'Super Admin')
-        <li><a href="{{ route('inbox.create') }}" class="{{ set_active(['inbox.create']) }}">Tambah Surat</a></li>
-        @endif
-    </ul>
-</li>
-
+                <li class="submenu {{set_active(['student/list','student/grid','student/add/page'])}} {{ (request()->is('student/edit/*')) ? 'active' : '' }} {{ (request()->is('student/profile/*')) ? 'active' : '' }}">
+                    <a href="#"><i class="fas fa-envelope"></i>
+                        <span>Surat Masuk</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul>
+                        <li><a href="{{ route('student/list') }}" class="{{set_active(['student/list','student/grid'])}}">Daftar S</a></li>
+                        @if (auth()->user()->role_name === 'Super Admin')
+                        <li><a href="{{ route('student/add/page') }}" class="{{set_active(['student/add/page'])}}">Tambah Siswa</a></li>
+                        @endif
+                    </ul>
+                </li>
                 @endif
                 @if (auth()->user()->role_name === 'Admin' || auth()->user()->role_name === 'Super Admin')
                 <li class="submenu  {{set_active(['teacher/add/page','teacher/list/page','teacher/grid/page','teacher/edit'])}} {{ (request()->is('teacher/edit/*')) ? 'active' : '' }}">
